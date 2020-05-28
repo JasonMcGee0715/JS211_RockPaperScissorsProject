@@ -37,6 +37,9 @@ else if (hand2 === rock && hand1 ===scissors || hand2 === paper && hand1 === roc
 }
 else if (hand1 === "" || hand2 === "")
   return "Enter an input!"
+else if (hand1 !== rock || hand1 !== paper || hand1 !== scissors || hand2 !== rock || hand2 !== paper || hand2 !== scissors) {
+  return "Take that weapon elsewhere! Approved weapons only!"
+}
 else {
   return "NOPE!!!"
 }
@@ -79,6 +82,9 @@ if (typeof describe === 'function') {
     it('should detect if user hits enter before entering input' , () => {
       assert.equal(rockPaperScissors('', ''), "Enter an input!");
     });
+    it('return text if wrong input is put in', () => {
+      assert.equal(rockPaperScissors('rock', 'shrub'), "Take that weapon elsewhere! Approved weapons only!");
+      });
   });
 } else {
 
